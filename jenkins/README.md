@@ -39,6 +39,17 @@ Can not write to /var/jenkins_home/copy_reference_file.log. Wrong volume permiss
 chown -R 1000:1000 /home/zzjz/jenkins
 ```
 
+- Jenkins容器采用宿主机的docker和docker-compose命令
+
+> 在Jenkins容器启动时需要添加如下挂在卷,并且设置 user: root或者将jenkins用户添加到docker组中
+
+```
+user: root  # 表示在容器中以 root 用户运行
+- /var/run/docker.sock:/var/run/docker.sock
+- /usr/bin/docker:/usr/bin/docker
+- /usr/local/bin/docker-compose:/usr/local/bin/docker-compose
+```
+
 ## 外部链接
 
 [Docker Jenkins](https://hub.docker.com/_/jenkins?tab=description)
