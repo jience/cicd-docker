@@ -7,8 +7,10 @@ services:
       networks:
         - gitlab_default
       volumes:
-        - /opt/zzjz/gitlab-runner/config:/etc/gitlab-runner
+        - gitlab-runner_config:/etc/gitlab-runner
         - /var/run/docker.sock:/var/run/docker.sock
 networks:
   gitlab_default:
     external: true
+volumes: 
+  gitlab-runner_config:
